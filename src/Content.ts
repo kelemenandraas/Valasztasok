@@ -49,6 +49,8 @@ export default class Content {
             res.write(`${megold.legtobbSzavazat[index]}\n`);
         }
         megold.keruletek();
+        res.write("<a href='https://github.com/kelemenandraas/Valasztasok'>Git</a>&nbsp;&nbsp;&nbsp;");
+        res.write("<a href='https://valasztasok-13aka.herokuapp.com/'>Heroku</a>");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");
