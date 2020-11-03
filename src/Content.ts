@@ -26,7 +26,7 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        let megold = new Megoldas();
+        const megold = new Megoldas();
         //megold.kiÍr();
         res.write("2. feladat:\n");
         res.write(`A helyhatósági választáson ${megold.jeloltekSzama} képviselőjelölt indult.\n`);
@@ -48,7 +48,10 @@ export default class Content {
         for (let index = 0; index < megold.legtobbSzavazat.length; index++) {
             res.write(`${megold.legtobbSzavazat[index]}\n`);
         }
-        megold.keruletek();
+
+        megold.keruletek.forEach(element => {
+            res.write(`${element} \n`);
+        });
         res.write("<a href='https://github.com/kelemenandraas/Valasztasok'>Git</a>&nbsp;&nbsp;&nbsp;");
         res.write("<a href='https://valasztasok-13aka.herokuapp.com/'>Heroku</a>");
         // <---- Fejezd be a kódolást

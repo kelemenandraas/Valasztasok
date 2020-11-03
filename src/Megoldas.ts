@@ -13,14 +13,14 @@ export default class Megoldas {
     }
 
     public get jeloltekSzama(): number {
-        let kepviselokSzama = this._szavazatok.length;
+        const kepviselokSzama = this._szavazatok.length;
         return kepviselokSzama;
     }
 
-    public kepviseloKereso(nev: string): any {
+    public kepviseloKereso(nev: string): string {
         let vissza: string = "Ilyen nevű képviselőjelölt nem szerepel a nyilvántartásban!";
         this._szavazatok.forEach(x => {
-            let kepviseloNeve = x.Nev;
+            const kepviseloNeve = x.Nev;
             if (kepviseloNeve == nev) {
                 vissza = nev + " " + x.szavazatSzam.toString() + " szavazatot kapott.";
             }
@@ -31,11 +31,10 @@ export default class Megoldas {
     public get szavazokSzama(): number[] {
         const szavazasraJogosult: number = 12345;
         this._szavazok = 0;
-        let szavazokAranya;
         this._szavazatok.forEach(x => {
             this._szavazok += x.szavazatSzam;
         });
-        szavazokAranya = +((this._szavazok / szavazasraJogosult) * 100).toFixed(2);
+        const szavazokAranya = +((this._szavazok / szavazasraJogosult) * 100).toFixed(2);
         return [this._szavazok, szavazokAranya];
     }
 
@@ -59,7 +58,7 @@ export default class Megoldas {
             }
         });
 
-        let s: string[] = [];
+        const s: string[] = [];
         s[0] = "Gyümölcsevők Pártja= " + ((gyepDB / this._szavazok) * 100).toFixed(2) + " %";
         s[1] = "Húsevők Pártja= " + ((hepDB / this._szavazok) * 100).toFixed(2) + " %";
         s[2] = "Tejivók Szövetsége= " + ((tiszDB / this._szavazok) * 100).toFixed(2) + " %";
@@ -83,9 +82,9 @@ export default class Megoldas {
         });
         return legtobb;
     }
-    public keruletek(): void {
-        let valasztoKerulet: number[] = [0, 0, 0, 0, 0, 0, 0, 0];
-        let nyertesek: string[] = ["", "", "", "", "", "", "", ""];
+    public get keruletek(): string[] {
+        const valasztoKerulet: number[] = [0, 0, 0, 0, 0, 0, 0, 0];
+        const nyertesek: string[] = ["", "", "", "", "", "", "", ""];
         this._szavazatok.forEach(x => {
             if (x.szavazatSzam > valasztoKerulet[x.Kerulet - 1]) {
                 valasztoKerulet[x.Kerulet - 1] = x.szavazatSzam;
@@ -93,7 +92,8 @@ export default class Megoldas {
                 nyertesek[x.Kerulet - 1] = x.Kerulet + ".kerület: " + x.Nev + " " + x.Part;
             }
         });
-        fs.writeFileSync("kepviselok.txt", nyertesek.join(`\r\n`));
+        fs.writeFileSync("kepviselok.txt", nyertesek.join("\r\n"));
+        return nyertesek;
     }
 
     constructor() {
