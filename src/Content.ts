@@ -48,7 +48,7 @@ export default class Content {
         for (let index = 0; index < megold.legtobbSzavazat.length; index++) {
             res.write(`${megold.legtobbSzavazat[index]}\n`);
         }
-
+        res.write("7.feladat:\n");
         megold.keruletek.forEach(element => {
             res.write(`${element} \n`);
         });
