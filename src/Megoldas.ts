@@ -18,11 +18,13 @@ export default class Megoldas {
     }
 
     public kepviseloKereso(nev: string): string {
+        let kinev: string = "";
         let vissza: string = "Ilyen nevű képviselőjelölt nem szerepel a nyilvántartásban!";
         this._szavazatok.forEach(x => {
             const kepviseloNeve = x.Nev;
-            if (kepviseloNeve == nev) {
-                vissza = nev + " " + x.szavazatSzam.toString() + " szavazatot kapott.";
+            if (kepviseloNeve.toUpperCase() == nev.toUpperCase()) {
+                kinev = x.Nev;
+                vissza = kinev + " " + x.szavazatSzam.toString() + " szavazatot kapott.";
             }
         });
         return vissza;
