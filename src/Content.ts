@@ -48,12 +48,12 @@ export default class Content {
         for (let index = 0; index < megold.legtobbSzavazat.length; index++) {
             res.write(`${megold.legtobbSzavazat[index]}\n`);
         }
-        res.write("7.feladat:\n");
+        res.write("7.feladat: ('képviselok.txt' tartalmának kiírása képernyőre)\n");
         megold.keruletek.forEach(element => {
             res.write(`${element} \n`);
         });
-        res.write("<a href='https://github.com/kelemenandraas/Valasztasok'>Git</a>&nbsp;&nbsp;&nbsp;");
-        res.write("<a href='https://valasztasok-13aka.herokuapp.com/'>Heroku</a>");
+        res.write("<a href='https://github.com/kelemenandraas/Valasztasok' target='_blank'>Git</a>&nbsp;&nbsp;&nbsp;");
+        res.write("<a href='https://valasztasok-13aka.herokuapp.com/' target='_blank'>Heroku</a>");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");

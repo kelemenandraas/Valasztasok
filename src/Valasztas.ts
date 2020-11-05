@@ -18,7 +18,7 @@ export default class Valasztas {
     }
 
     constructor(s: string) {
-        let m: string[] = s.split(" ");
+        const m: string[] = s.split(" ");
         this._Kerulet = parseInt(m[0]);
         this._szavazatSzam = parseInt(m[1]);
         this._Nev = m[2] + " " + m[3];
