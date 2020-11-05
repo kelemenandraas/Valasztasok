@@ -2,7 +2,7 @@ export default class Valasztas {
     private _Kerulet: number;
     private _szavazatSzam: number;
     private _Nev: string;
-    public _Part: string;
+    private _Part: string;
 
     public get Kerulet(): number {
         return this._Kerulet;

@@ -48,7 +48,7 @@ export default class Content {
         for (let index = 0; index < megold.legtobbSzavazat.length; index++) {
             res.write(`${megold.legtobbSzavazat[index]}\n`);
         }
-        res.write("7.feladat: ('képviselok.txt' tartalmának kiírása képernyőre)\n");
+        res.write("7.feladat: ('kepviselok.txt' tartalmának kiírása képernyőre)\n");
         megold.keruletek.forEach(element => {
             res.write(`${element} \n`);
         });
